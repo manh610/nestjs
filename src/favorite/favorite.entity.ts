@@ -8,14 +8,17 @@ export class Favorite {
     @PrimaryGeneratedColumn()
     id : number
 
-    @OneToOne(type => Account)
-    @JoinColumn()
-    account : Account;
-    accountId : number;
+    // @OneToOne(type => Account)
+    // @JoinColumn()
+    // account : Account;
 
-    @OneToOne( type => Products)
-    @JoinColumn()
-    product : Products;
-    productId : number
+    // @OneToOne( type => Products)
+    // @JoinColumn()
+    // product : Products;
     
+    @ManyToOne(type => Account, account => account.favorite)
+    account : Account[]
+
+    @ManyToOne(type => Products, product => product.favorite)
+    product : Products[]
 }

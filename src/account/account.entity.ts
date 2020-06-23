@@ -18,6 +18,6 @@ export class Account {
     @Column()
     deal : string;
 
-    @OneToMany(type => Favorite, favorite => favorite.accountId)
+    @OneToMany(type => Favorite, favorite => favorite.account)
     favorite : Favorite
 }

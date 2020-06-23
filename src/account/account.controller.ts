@@ -19,14 +19,9 @@ export class AccountController {
     // }
 
     @Put(':id')
-    update(@Body() account:Account) {
-        return this.accountService.update(account);
+    update(@Param('id')id,@Body() account:Account) {
+        return this.accountService.update(id, account);
     }
-
-    // @Delete(':id')
-    // delete(@Param() params) {
-    //     return this.accountService.delete(params.id);
-    // }
 
     @Post('login')
     login(@Body() account:Account ) {

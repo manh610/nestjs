@@ -9,8 +9,8 @@ export class FavoriteController {
     ){}
     
     @Get(':id')
-    getByAcc(@Param() params) {
-        return this.favoriteService.getByAcc(params.id);
+    getByAcc(@Param('id') id:number) {
+        return this.favoriteService.getByAcc(id);
     }
     
     @Post('add')
@@ -18,5 +18,8 @@ export class FavoriteController {
         return this.favoriteService.create(favorite);
     }
 
-
+    @Get()
+    getAll() {
+        return this.favoriteService.getAll();
+    }
 }

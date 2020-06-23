@@ -28,8 +28,8 @@ export class AccountService {
         })
     }
 
-    async update(account : Account ) : Promise<UpdateResult> {
-        return await this.accountRepo.update(account.id, account);
+    async update(id:number,account : Account) : Promise<UpdateResult> {
+        return await this.accountRepo.update(id,account);
     }
 
     async delete(id : number): Promise<DeleteResult> {

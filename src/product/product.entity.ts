@@ -18,7 +18,7 @@ export class Products {
     @Column()
     status : boolean;
     
-    @OneToMany(type => Favorite, favorite => favorite.product.id)
+    @OneToMany(type => Favorite, favorite => favorite.product)
     favorite : Favorite
     
 }

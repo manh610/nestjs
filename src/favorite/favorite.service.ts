@@ -10,11 +10,8 @@ export class FavoriteService {
         private favoriteRepo : Repository<Favorite>,
     ) {}
     
-    async create(favorite : any): Promise<Favorite> {
-        const a = new Favorite();
-       a.accountId = favorite.accountId;
-       a.productId =favorite.producId;
-    return  this.favoriteRepo.save(a);
+    async create(favorite : Favorite): Promise<Favorite> {
+        return  this.favoriteRepo.save(favorite);
     }
 
     async getByAcc(accId : number ) : Promise<any> {
@@ -25,5 +22,8 @@ export class FavoriteService {
             relations : ['favorite']
         });
     }
+
+    async getAll() : Promise<any> {
+        return await this.favoriteRepo.find();
+    }
 }
- 

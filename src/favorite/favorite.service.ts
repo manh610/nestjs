@@ -15,15 +15,15 @@ export class FavoriteService {
     }
 
     async getByAcc(accId : number ) : Promise<any> {
-        return await this.favoriteRepo.findOne({
+        return await this.favoriteRepo.find({
             where : {
-                accountId : accId
+                account : accId
             },
-            relations : ['favorite']
+            relations : ['product']
         });
     }
 
     async getAll() : Promise<any> {
-        return await this.favoriteRepo.find();
+        return await this.favoriteRepo.find({relations: ['account','product']});
     }
 }

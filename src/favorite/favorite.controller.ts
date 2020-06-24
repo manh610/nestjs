@@ -1,6 +1,6 @@
 import { FavoriteService } from './favorite.service';
 import { Favorite } from './favorite.entity';
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Delete } from '@nestjs/common';
 
 @Controller('favorite')
 export class FavoriteController {
@@ -21,5 +21,10 @@ export class FavoriteController {
     @Get()
     getAll() {
         return this.favoriteService.getAll();
+    }
+
+    @Delete(':id')
+    delete(@Param('id') id:number){
+        return this.favoriteService.delete(id);
     }
 }

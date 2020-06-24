@@ -1,5 +1,5 @@
 import { Favorite } from './favorite.entity';
-import { Repository } from 'typeorm';
+import { Repository, DeleteResult } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -25,5 +25,9 @@ export class FavoriteService {
 
     async getAll() : Promise<any> {
         return await this.favoriteRepo.find({relations: ['account','product']});
+    }
+
+    async delete(id : number) : Promise<DeleteResult> {
+        return await this.favoriteRepo.delete(id);
     }
 }
